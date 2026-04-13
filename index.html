@@ -88,8 +88,12 @@
 
     /* Hero two-column layout */
     @media (max-width: 900px) {
-      #hero .container { grid-template-columns: 1fr !important; }
-      #hero .container > div:last-child { display: none; }
+      .hero-grid { grid-template-columns: 1fr !important; padding: 0 24px !important; }
+      .hero-grid > div:last-child { display: none !important; }
+    }
+    @media (max-width: 640px) {
+      .hero-grid { padding: 0 20px !important; }
+      .hero-content { padding-top: 96px !important; padding-bottom: 80px !important; }
     }
   </style>
 </head>
@@ -154,7 +158,7 @@
   <div style="position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse at 70% 50%, transparent 40%, rgba(0,0,0,0.5) 100%);pointer-events:none;"></div>
 
   <!-- CONTENT -->
-  <div style="width:100%;max-width:1600px;margin:0 auto;padding:0 60px;position:relative;z-index:2;display:grid;grid-template-columns:1fr 1.4fr;align-items:center;gap:0;box-sizing:border-box;">
+  <div class="hero-grid" style="width:100%;max-width:1600px;margin:0 auto;padding:0 60px;position:relative;z-index:2;display:grid;grid-template-columns:1fr 1.4fr;align-items:center;gap:0;box-sizing:border-box;">
     <div class="hero-content" style="padding-left:0;">
       <div class="hero-tag">
         <span class="dot"></span>
@@ -665,7 +669,7 @@
       <p style="color:var(--gray);font-size:15px;margin-top:10px;">Connect with us on global platforms or visit us directly</p>
     </div>
 
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:28px;" class="anim">
+    <div class="find-us-grid anim" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:28px;">
 
       <!-- Baidu — LEFT -->
       <a href="https://www.baidu.com/s?ie=utf-8&wd=Zhejiang%20Zhongyan%20New%20Energy%20Co.%2C%20Ltd" target="_blank" rel="noopener"
