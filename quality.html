@@ -21,8 +21,11 @@
     .standard-badge { width:48px; height:48px; background:rgba(196,18,48,0.15); border-radius:var(--radius); display:flex; align-items:center; justify-content:center; color:var(--primary); flex-shrink:0; font-size:10px; font-weight:700; text-align:center; line-height:1.2; }
     .standard-name { font-size:14px; font-weight:700; color:white; margin-bottom:4px; }
     .standard-desc { font-size:12px; color:rgba(255,255,255,0.4); line-height:1.5; }
-    @media(max-width:900px){ .cert-gallery{grid-template-columns:repeat(3,1fr);} .process-cards{grid-template-columns:1fr 1fr;} .standards-grid{grid-template-columns:1fr;} }
-    @media(max-width:640px){ .cert-gallery{grid-template-columns:repeat(2,1fr);} .process-cards{grid-template-columns:1fr;} }
+    @media(max-width:900px){ .cert-gallery{grid-template-columns:repeat(2,1fr);} .process-cards{grid-template-columns:1fr 1fr;} .standards-grid{grid-template-columns:1fr;} }
+    @media(max-width:640px){ .cert-gallery{grid-template-columns:repeat(2,1fr); gap:12px;} .cert-item img{height:160px;} .process-cards{grid-template-columns:1fr;} }
+    /* cert-grid (icon cards) — 2 per row on mobile */
+    @media(max-width:900px){ .cert-grid{grid-template-columns:1fr 1fr !important; gap:14px;} }
+    @media(max-width:640px){ .cert-grid{grid-template-columns:1fr 1fr !important; gap:12px; margin-top:28px;} .cert-card{padding:18px 12px;} .cert-title{font-size:13px;} .cert-desc{font-size:11px;} }
   </style>
 </head>
 <body>
