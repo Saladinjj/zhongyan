@@ -1,0 +1,48 @@
+# Development and environment files
+.claude/
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.temp
+
+# Source files and assets not needed in repo
+*.ai
+*.psd
+*.xd
+*.sketch
+
+# Temporary generated images
+Gemini_Generated_Image_*
+Weixin Image_*
+*removebg-preview.png
+
+# Data exports (CSV files - might contain sensitive data)
+*.csv
+
+# System files
+desktop.ini
+
+# Node.js (if backend added later)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+ehthumbs.db
+Icon?
+[Tt]humbs.db

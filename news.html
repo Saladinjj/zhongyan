@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>News — Zhongyan New Energy</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .news-layout { display:grid; grid-template-columns:1fr 320px; gap:50px; align-items:start; }
+    .news-featured { background:white; border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-md); margin-bottom:28px; }
+    .news-featured-img { width:100%; height:340px; object-fit:cover; }
+    .news-featured-img-placeholder { width:100%;height:340px;background:linear-gradient(135deg,#111,#222);display:flex;align-items:center;justify-content:center; }
+    .news-featured-body { padding:36px; }
+    .news-featured-title { font-size:22px; font-weight:800; color:var(--dark); margin:12px 0; line-height:1.3; transition:color var(--t); }
+    .news-featured:hover .news-featured-title { color:var(--primary); }
+    .news-featured-excerpt { font-size:14px; color:var(--gray); line-height:1.7; margin-bottom:20px; }
+    .news-list-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+    .news-list-card { background:white; border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow); transition:var(--t) var(--ease); display:flex; flex-direction:column; }
+    .news-list-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-md); }
+    .news-list-img { width:100%;height:160px;object-fit:cover; }
+    .news-list-img-ph { width:100%;height:160px;background:linear-gradient(135deg,#111,#2a2a2a);display:flex;align-items:center;justify-content:center; }
+    .news-list-body { padding:20px; flex:1; display:flex; flex-direction:column; }
+    .news-list-title { font-size:14px; font-weight:700; color:var(--dark); line-height:1.4; margin:8px 0 10px; transition:color var(--t); flex:1; }
+    .news-list-card:hover .news-list-title { color:var(--primary); }
+    /* Sidebar */
+    .sidebar-box { background:white; border-radius:var(--radius-lg); padding:28px; box-shadow:var(--shadow); margin-bottom:24px; }
+    .sidebar-title { font-size:14px; font-weight:800; color:var(--dark); letter-spacing:0.5px; text-transform:uppercase; margin-bottom:20px; padding-bottom:12px; border-bottom:2px solid var(--primary); display:inline-block; }
+    .sidebar-cat-item { display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid var(--border); font-size:13px; color:var(--dark); transition:color var(--t); cursor:pointer; }
+    .sidebar-cat-item:last-child { border-bottom:none; }
+    .sidebar-cat-item:hover { color:var(--primary); }
+    .sidebar-cat-count { background:var(--light-gray); border-radius:20px; padding:2px 10px; font-size:11px; font-weight:700; color:var(--gray); }
+    .sidebar-recent { display:flex; flex-direction:column; gap:14px; }
+    .recent-item { display:flex; gap:12px; align-items:flex-start; }
+    .recent-img { width:60px; height:60px; object-fit:cover; border-radius:var(--radius); flex-shrink:0; }
+    .recent-img-ph { width:60px;height:60px;background:linear-gradient(135deg,#1a1a1a,#2a2a2a);border-radius:var(--radius);flex-shrink:0; }
+    .recent-title { font-size:12px; font-weight:600; color:var(--dark); line-height:1.4; transition:color var(--t); }
+    .recent-item:hover .recent-title { color:var(--primary); }
+    .recent-date { font-size:11px; color:var(--gray); margin-top:4px; }
+    @media(max-width:1100px){ .news-layout{grid-template-columns:1fr;} }
+    @media(max-width:640px){ .news-list-grid{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+
+<header id="header" class="scrolled">
+  <div class="container">
+    <a href="index.html" class="logo"><img src="logo%20svg.png" alt="Zhongyan New Energy" style="height:48px;width:auto;object-fit:contain;" /></a>
+    <nav>
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="products.html" data-i18n="nav_products">Products</a>
+      <a class="nav-link" href="about.html" data-i18n="nav_about">About</a>
+      <a class="nav-link" href="equipment.html" data-i18n="nav_equipment">Equipment &amp; Capacity</a>
+      <a class="nav-link" href="quality.html" data-i18n="nav_quality">Quality</a>
+      <a class="nav-link active" href="news.html" data-i18n="nav_news">News</a>
+      <a class="nav-link" href="contact.html" data-i18n="nav_contact">Contact</a>
+    </nav>
+    <div class="header-right">
+      <div class="lang-toggle"><button class="lang-btn active" data-lang="en">EN</button><button class="lang-btn" data-lang="fr">FR</button><button class="lang-btn" data-lang="es">ES</button><button class="lang-btn" data-lang="ar">AR</button></div>
+      <button class="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu"><button class="mobile-close">✕</button>
+  <a class="nav-link" href="products.html" data-i18n="nav_products">Products</a>
+  <a class="nav-link" href="about.html" data-i18n="nav_about">About</a>
+  <a class="nav-link" href="equipment.html" data-i18n="nav_equipment">Equipment &amp; Capacity</a>
+  <a class="nav-link" href="quality.html" data-i18n="nav_quality">Quality</a>
+  <a class="nav-link" href="news.html" data-i18n="nav_news">News</a>
+  <a class="nav-link" href="contact.html" data-i18n="nav_contact">Contact</a>
+  <div class="lang-toggle" style="margin-top:20px;"><button class="lang-btn active" data-lang="en">EN</button><button class="lang-btn" data-lang="fr">FR</button><button class="lang-btn" data-lang="es">ES</button><button class="lang-btn" data-lang="ar">AR</button></div>
+</div>
+
+<!-- PAGE BANNER -->
+<div class="page-banner" style="padding-top:88px;">
+  <div style="position:absolute;inset:0;background:linear-gradient(135deg,#0a0a0a,#1a0505);"></div>
+  <div style="position:absolute;inset:0;background:url('https://www.haiyannewenergy.com/theme/haiyan-EN/images/home-banner-bg.webp') center/cover no-repeat;opacity:0.1;"></div>
+  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(196,18,48,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(196,18,48,0.05) 1px,transparent 1px);background-size:60px 60px;"></div>
+  <div class="container page-banner-content">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a><span class="breadcrumb-sep">›</span>
+      <span class="current" data-i18n="nav_news">News</span>
+    </div>
+    <h1 class="page-banner-title" data-i18n="news_title">Events &amp; News</h1>
+    <p class="page-banner-sub">Latest updates, industry insights and company announcements.</p>
+  </div>
+</div>
+
+<!-- NEWS CONTENT -->
+<section class="section-pad" style="background:var(--light-gray);">
+  <div class="container">
+    <div class="news-layout">
+
+      <!-- Main Content -->
+      <div>
+        <!-- Featured Article -->
+        <article class="news-featured anim">
+          <img src="https://www.haiyannewenergy.com/upload/1c/202501/17362282027210.webp"
+               alt="Zhongyan Factory — Aluminum Busbar Production" class="news-featured-img"
+               onerror="this.src='https://www.haiyannewenergy.com/upload/1c/202501/17362282022336.webp';" />
+          <div class="news-featured-body">
+            <div class="news-meta"><span class="news-cat">Company</span><span class="news-date">March 2025</span></div>
+            <h2 class="news-featured-title">Zhongyan Launches New Generation Aluminum Busbar Series for Energy Storage</h2>
+            <p class="news-featured-excerpt">Our latest aluminum busbar range brings a 20% weight reduction while maintaining identical current-carrying capacity — a breakthrough for large-scale BESS installations where weight-to-power ratio is critical. The new series is certified to GB/T 5585 and fully RoHS compliant.</p>
+            <a href="#" class="btn btn-primary" style="font-size:13px;padding:10px 24px;">Read Full Article →</a>
+          </div>
+        </article>
+
+        <!-- News Grid -->
+        <div class="news-list-grid">
+
+          <article class="news-list-card anim anim-d1">
+            <img src="https://www.haiyannewenergy.com/upload/1c/202501/17362282021984.webp"
+                 alt="Zhongyan Factory Building" class="news-list-img"
+                 onerror="this.src='https://www.haiyannewenergy.com/upload/1c/202501/17362282022336.webp';" />
+            <div class="news-list-body">
+              <div class="news-meta"><span class="news-cat">Company</span><span class="news-date">Jan 2025</span></div>
+              <h3 class="news-list-title">Zhongyan New Energy Launches New Generation of Irregular Soft Connection Series</h3>
+              <a href="#" class="news-more">View More →</a>
+            </div>
+          </article>
+
+          <article class="news-list-card anim anim-d2">
+            <img src="https://www.haiyannewenergy.com/theme/haiyan-EN/images/driven1.webp"
+                 alt="Zhongyan Team" class="news-list-img"
+                 onerror="this.src='https://www.haiyannewenergy.com/upload/1c/202501/17362282021984.webp';" />
+            <div class="news-list-body">
+              <div class="news-meta"><span class="news-cat">Certification</span><span class="news-date">Dec 2024</span></div>
+              <h3 class="news-list-title">Zhongyan Achieves IATF 16949 Automotive Quality Management Certification</h3>
+              <a href="#" class="news-more">View More →</a>
+            </div>
+          </article>
+
+          <article class="news-list-card anim anim-d3">
+            <img src="https://www.haiyannewenergy.com/upload/1c/202501/17362282027210.webp"
+                 alt="Production Line" class="news-list-img"
+                 onerror="this.src='https://www.haiyannewenergy.com/upload/1c/202501/17362282022336.webp';" />
+            <div class="news-list-body">
+              <div class="news-meta"><span class="news-cat">Expansion</span><span class="news-date">Nov 2024</span></div>
+              <h3 class="news-list-title">New 10,000 m² Production Facility Commissioned to Meet Growing Global Demand</h3>
+              <a href="#" class="news-more">View More →</a>
+            </div>
+          </article>
+
+          <article class="news-list-card anim anim-d4">
+            <img src="https://www.haiyannewenergy.com/upload/1c/202501/17362282022336.webp"
+                 alt="Zhongyan Facility" class="news-list-img"
+                 onerror="this.src='https://www.haiyannewenergy.com/upload/1c/202501/17362282021984.webp';" />
+            <div class="news-list-body">
+              <div class="news-meta"><span class="news-cat">Market</span><span class="news-date">Oct 2024</span></div>
+              <h3 class="news-list-title">Zhongyan Enters Middle East Market with First Major Distribution Partnership</h3>
+              <a href="#" class="news-more">View More →</a>
+            </div>
+          </article>
+
+          <article class="news-list-card anim anim-d1">
+            <img src="https://www.haiyannewenergy.com/upload/1c/202505/Inverter-busbar.webp"
+                 alt="Inverter Busbar" class="news-list-img"
+                 onerror="this.style.display='none';" />
+            <div class="news-list-body">
+              <div class="news-meta"><span class="news-cat">Product</span><span class="news-date">Sep 2024</span></div>
+              <h3 class="news-list-title">High-Frequency Inverter Busbar Series — Now Available for Solar &amp; Wind Applications</h3>
+              <a href="#" class="news-more">View More →</a>
+            </div>
+          </article>
+
+          <article class="news-list-card anim anim-d2">
+            <img src="https://www.haiyannewenergy.com/upload/1c/202505/CCS.webp"
+                 alt="CCS Busbar" class="news-list-img"
+                 onerror="this.style.display='none';" />
+            <div class="news-list-body">
+              <div class="news-meta"><span class="news-cat">Innovation</span><span class="news-date">Aug 2024</span></div>
+              <h3 class="news-list-title">CCS Integrated Busbar with Embedded NTC Sensors Launched for Battery Management</h3>
+              <a href="#" class="news-more">View More →</a>
+            </div>
+          </article>
+
+        </div><!-- /news-list-grid -->
+
+        <!-- Pagination -->
+        <div style="display:flex;justify-content:center;gap:8px;margin-top:40px;" class="anim">
+          <button style="width:40px;height:40px;border-radius:50%;background:var(--primary);color:white;font-weight:700;font-size:13px;border:none;cursor:pointer;">1</button>
+          <button style="width:40px;height:40px;border-radius:50%;background:white;color:var(--dark);font-weight:600;font-size:13px;border:2px solid var(--border);cursor:pointer;">2</button>
+          <button style="width:40px;height:40px;border-radius:50%;background:white;color:var(--dark);font-weight:600;font-size:13px;border:2px solid var(--border);cursor:pointer;">3</button>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <aside>
+        <div class="sidebar-box anim">
+          <div class="sidebar-title">Categories</div>
+          <div class="sidebar-cat-item"><span>Company News</span><span class="sidebar-cat-count">8</span></div>
+          <div class="sidebar-cat-item"><span>Product Launches</span><span class="sidebar-cat-count">5</span></div>
+          <div class="sidebar-cat-item"><span>Certifications</span><span class="sidebar-cat-count">3</span></div>
+          <div class="sidebar-cat-item"><span>Industry</span><span class="sidebar-cat-count">4</span></div>
+          <div class="sidebar-cat-item"><span>Expansion</span><span class="sidebar-cat-count">2</span></div>
+          <div class="sidebar-cat-item"><span>Exhibitions</span><span class="sidebar-cat-count">6</span></div>
+        </div>
+
+        <div class="sidebar-box anim" style="transition-delay:0.1s;">
+          <div class="sidebar-title">Recent Posts</div>
+          <div class="sidebar-recent">
+            <a href="#" class="recent-item">
+              <img src="https://www.haiyannewenergy.com/upload/1c/202505/FFC-CCS.webp" class="recent-img" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+              <div class="recent-img-ph" style="display:none;"></div>
+              <div>
+                <div class="recent-title">New CCS Integrated Busbar Series for EV Battery Packs</div>
+                <div class="recent-date">May 2025</div>
+              </div>
+            </a>
+            <a href="#" class="recent-item">
+              <img src="https://www.haiyannewenergy.com/upload/1c/202505/Composite-laminated-busbar.webp" class="recent-img" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+              <div class="recent-img-ph" style="display:none;"></div>
+              <div>
+                <div class="recent-title">Composite Laminated Busbar — Low Inductance Power Electronics</div>
+                <div class="recent-date">Apr 2025</div>
+              </div>
+            </a>
+            <a href="#" class="recent-item">
+              <img src="https://www.haiyannewenergy.com/upload/1c/202505/Inverter-busbar.webp" class="recent-img" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+              <div class="recent-img-ph" style="display:none;"></div>
+              <div>
+                <div class="recent-title">Inverter Busbar for Solar &amp; Wind Energy Systems</div>
+                <div class="recent-date">Mar 2025</div>
+              </div>
+            </a>
+            <a href="#" class="recent-item">
+              <div class="recent-img-ph"></div>
+              <div>
+                <div class="recent-title">ISO 14001:2015 Environmental Certification Renewed</div>
+                <div class="recent-date">Feb 2025</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="sidebar-box anim" style="transition-delay:0.2s;background:var(--primary);border:none;">
+          <div style="font-size:18px;font-weight:800;color:white;margin-bottom:10px;">Need a Custom Solution?</div>
+          <p style="font-size:13px;color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:20px;">Our engineers are ready to design a busbar tailored to your exact specifications. Samples in 1 week.</p>
+          <a href="contact.html" class="btn" style="background:white;color:var(--primary);width:100%;justify-content:center;font-size:13px;">Contact Us Today</a>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta"><div class="container" style="position:relative;z-index:1;"><div class="anim">
+  <span class="cta-eyebrow">Partner with us</span>
+  <h2 class="cta-title"><span data-i18n="cta_title_1">Start Your Cooperation Journey</span><br><em data-i18n="cta_title_2">With Zhongyan</em></h2>
+  <p class="cta-sub" data-i18n="cta_sub">Join 3,000+ satisfied clients worldwide.</p>
+  <div class="cta-actions">
+    <a href="contact.html" class="btn btn-primary">Get in Touch</a>
+    <a href="products.html" class="btn btn-outline">View Products</a>
+  </div>
+</div></div></section>
+
+<footer id="footer"><div class="container">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="index.html" class="logo"><img src="logo%20svg.png" alt="Zhongyan New Energy" style="height:48px;width:auto;object-fit:contain;" /></a>
+      <p class="footer-brand-desc" data-i18n="footer_desc">Leading manufacturer of flexible busbars and new energy conductive components.</p>
+      <div class="footer-socials">
+        <a href="#" class="social-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+        <a href="#" class="social-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col"><h4 data-i18n="footer_col1">Products</h4><div class="footer-links">
+      <a href="products.html?cat=flexible" data-i18n="cat_1">Flexible Busbar</a>
+      <a href="products.html?cat=rigid" data-i18n="cat_2">Rigid Busbar</a>
+      <a href="products.html?cat=ccs">CCS Integrated</a>
+    </div></div>
+    <div class="footer-col"><h4 data-i18n="footer_col2">Company</h4><div class="footer-links">
+      <a href="about.html">About Us</a><a href="equipment.html">Equipment</a>
+      <a href="quality.html">Quality</a><a href="news.html">News</a>
+    </div></div>
+    <div class="footer-col"><h4 data-i18n="footer_col3">Contact</h4>
+      <div class="footer-contact-item"><div class="footer-contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.34 9.18 19.79 19.79 0 01.25 4.5 2 2 0 012.23 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 9.91a16 16 0 006.72 6.72l1.48-.59a2 2 0 012.11.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div><div class="footer-contact-text">+86 577-61616256</div></div>
+      <div class="footer-contact-item"><div class="footer-contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div class="footer-contact-text">manager@haiyanxny.com</div></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy" data-i18n="footer_copy">© 2025 Zhejiang Zhongyan New Energy Co., Ltd. All rights reserved.</p>
+    <div class="footer-bottom-links"><a href="#" data-i18n="footer_privacy">Privacy Policy</a><a href="#" data-i18n="footer_terms">Terms of Use</a></div>
+  </div>
+</div></footer>
+<script src="js/main.js"></script>
+
+<!-- ── WhatsApp Floating Button ───────────────────────────── -->
+<a href="https://wa.me/8613857359835" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"
+   style="position:fixed;bottom:32px;right:32px;z-index:9999;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(37,211,102,0.45);transition:transform 0.25s ease,box-shadow 0.25s ease;text-decoration:none;"
+   onmouseover="this.style.transform='scale(1.12)';this.style.boxShadow='0 10px 32px rgba(37,211,102,0.6)'"
+   onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 6px 24px rgba(37,211,102,0.45)'">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="white">
+    <path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.471 2.027 7.773L0 32l8.489-2.022A15.94 15.94 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 01-6.756-1.845l-.484-.287-5.04 1.201 1.224-4.907-.316-.504A13.267 13.267 0 012.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.878c-.398-.199-2.355-1.162-2.72-1.295-.366-.133-.632-.199-.898.199-.266.398-1.031 1.295-1.264 1.561-.233.266-.465.299-.863.1-.398-.2-1.681-.619-3.202-1.977-1.183-1.056-1.982-2.36-2.214-2.758-.232-.398-.025-.613.175-.811.18-.179.398-.465.598-.698.199-.233.265-.399.398-.665.133-.266.066-.499-.033-.698-.1-.199-.898-2.164-1.23-2.963-.324-.778-.653-.672-.898-.685l-.765-.013c-.266 0-.698.1-.1065.499-.366.398-1.397 1.362-1.397 3.322s1.43 3.854 1.629 4.12c.199.265 2.814 4.296 6.817 6.026.953.412 1.697.658 2.277.842.957.305 1.828.262 2.516.159.768-.114 2.355-.963 2.688-1.893.333-.93.333-1.728.233-1.893-.1-.165-.366-.265-.764-.464z"/>
+  </svg>
+</a>
+
+</body>
+</html>
