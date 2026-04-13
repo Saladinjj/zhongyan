@@ -86,14 +86,33 @@
       50%       { transform: translateY(-18px); }
     }
 
+    /* Mobile car: hidden on desktop */
+    .hero-car-mobile { display: none; }
+
     /* Hero two-column layout */
     @media (max-width: 900px) {
-      .hero-grid { grid-template-columns: 1fr !important; padding: 0 24px !important; }
-      .hero-grid > div:last-child { display: none !important; }
+      .hero-grid { grid-template-columns: 1fr !important; padding: 0 20px !important; }
+      /* Hide desktop right-column car */
+      .hero-car-col { display: none !important; }
+      /* Show mobile car between tag and title */
+      .hero-car-mobile {
+        display: flex;
+        justify-content: center;
+        margin: 16px 0 8px;
+        pointer-events: none;
+      }
+      .hero-car-mobile img {
+        width: 85%;
+        filter: drop-shadow(0 16px 48px rgba(0,0,0,0.65));
+        animation: floatBusbar 4s ease-in-out infinite;
+      }
+      .hero-content {
+        padding-top: 16px !important;
+        padding-bottom: 40px !important;
+      }
     }
     @media (max-width: 640px) {
-      .hero-grid { padding: 0 20px !important; }
-      .hero-content { padding-top: 96px !important; padding-bottom: 80px !important; }
+      .hero-car-mobile img { width: 92%; }
     }
   </style>
 </head>
@@ -164,6 +183,10 @@
         <span class="dot"></span>
         <span data-i18n="hero_tag">Industry-Leading Manufacturer</span>
       </div>
+      <!-- Car visible only on mobile — sits between tag and title -->
+      <div class="hero-car-mobile">
+        <img src="car png.png" alt="EV Battery System" />
+      </div>
       <h1 class="hero-title">
         <span data-i18n="hero_title_1">Custom Flexible</span>
         <br><em style="color:var(--primary);font-style:normal;" data-i18n="hero_title_2">Busbars</em>
@@ -180,8 +203,8 @@
         <a href="contact.html" class="btn btn-outline" data-i18n="hero_cta2">Contact Us</a>
       </div>
     </div>
-    <!-- Car image — fills right column, overflows to right edge -->
-    <div style="display:flex;align-items:center;justify-content:flex-end;overflow:visible;position:relative;">
+    <!-- Car visible only on desktop — right column -->
+    <div class="hero-car-col" style="display:flex;align-items:center;justify-content:flex-end;overflow:visible;position:relative;">
       <img src="car png.png"
            alt="EV Battery System"
            style="width:115%;max-width:none;object-fit:contain;background:transparent;filter:drop-shadow(0 30px 80px rgba(0,0,0,0.6));animation:floatBusbar 4s ease-in-out infinite;margin-right:-60px;transform-origin:right center;" />
