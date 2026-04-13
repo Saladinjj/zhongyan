@@ -91,14 +91,23 @@
 
     /* Hero two-column layout */
     @media (max-width: 900px) {
-      .hero-grid { grid-template-columns: 1fr !important; padding: 0 20px !important; }
+      /* Align hero to top so no blank space above content */
+      #hero {
+        align-items: flex-start !important;
+        height: auto !important;
+        min-height: 100svh;
+      }
+      .hero-grid {
+        grid-template-columns: 1fr !important;
+        padding: 80px 20px 48px !important;
+      }
       /* Hide desktop right-column car */
       .hero-car-col { display: none !important; }
       /* Show mobile car between tag and title */
       .hero-car-mobile {
         display: flex;
         justify-content: center;
-        margin: 16px 0 8px;
+        margin: 14px 0 6px;
         pointer-events: none;
       }
       .hero-car-mobile img {
@@ -107,11 +116,12 @@
         animation: floatBusbar 4s ease-in-out infinite;
       }
       .hero-content {
-        padding-top: 16px !important;
-        padding-bottom: 40px !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
       }
     }
     @media (max-width: 640px) {
+      .hero-grid { padding: 72px 18px 40px !important; }
       .hero-car-mobile img { width: 92%; }
     }
   </style>

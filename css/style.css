@@ -1373,11 +1373,11 @@ nav {
   .mobile-menu .lang-toggle { margin-top: 16px; }
 
   /* ── Hero ───────────────────────────────────────────────── */
-  #hero { min-height: 100svh; align-items: flex-end; }
+  #hero { min-height: 100svh; align-items: flex-start; height: auto; }
   .hero-content {
     padding-left: 0;
-    padding-top: 100px;
-    padding-bottom: 90px;
+    padding-top: 0;
+    padding-bottom: 0;
     text-align: left;
   }
   .hero-title {
