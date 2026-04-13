@@ -1516,6 +1516,18 @@ nav {
   .news-title { font-size: 14px; line-height: 1.45; }
   .news-excerpt { font-size: 12px; }
 
+  /* ── Cert strip (index) — 2×2 grid ─────────────────────── */
+  .cert-strip-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 14px !important;
+  }
+  .cert-strip-grid > div {
+    padding: 20px 14px !important;
+  }
+  .cert-strip-grid img {
+    height: 80px !important;
+  }
+
   /* ── Find Us (index) ────────────────────────────────────── */
   .find-us-grid {
     grid-template-columns: 1fr !important;
