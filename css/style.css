@@ -1522,33 +1522,56 @@ nav {
     gap: 16px !important;
   }
 
+  /* ── Buttons — medium size, inline/auto width ───────────── */
+  .btn {
+    width: auto !important;
+    padding: 12px 28px !important;
+    font-size: 14px !important;
+    min-height: auto !important;
+    border-radius: 8px !important;
+    justify-content: center;
+  }
+  /* Hero actions stack but don't stretch */
+  .hero-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  /* CTA actions stay centered row */
+  .cta-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+  }
+
   /* ── CTA ────────────────────────────────────────────────── */
   #cta { padding: 60px 0; }
   .cta-eyebrow { font-size: 10px; letter-spacing: 2px; margin-bottom: 14px; }
   .cta-title { font-size: 26px; line-height: 1.25; margin-bottom: 10px; }
   .cta-sub { font-size: 14px; margin-bottom: 28px; }
-  .cta-actions {
-    flex-direction: column;
-    gap: 12px;
-    align-items: center;
-  }
-  .cta-actions .btn {
-    width: 100%;
-    max-width: 280px;
-    justify-content: center;
-    border-radius: 8px;
-    padding: 14px 24px;
-    font-size: 14px;
-  }
 
-  /* ── Footer ─────────────────────────────────────────────── */
+  /* ── Footer — centered ──────────────────────────────────── */
   #footer { padding: 52px 0 0; }
-  .footer-top { grid-template-columns: 1fr; gap: 32px; padding-bottom: 40px; }
-  .footer-col h4 { font-size: 12px; margin-bottom: 14px; }
-  .footer-links { gap: 8px; }
-  .footer-links a { font-size: 12px; }
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding-bottom: 40px;
+    text-align: center;
+  }
+  .footer-brand { display: flex; flex-direction: column; align-items: center; }
+  .footer-brand .logo { justify-content: center; }
+  .footer-brand-desc { text-align: center; }
+  .footer-socials { justify-content: center; }
+  .footer-col { text-align: center; }
+  .footer-col h4 { font-size: 12px; margin-bottom: 14px; display: block; }
+  .footer-links { align-items: center; gap: 8px; }
+  .footer-links a { font-size: 12px; justify-content: center; }
+  .footer-links a::before { display: none; }
+  .footer-contact-item { justify-content: center; }
+  .footer-contact-text { font-size: 11px; text-align: left; }
   .footer-brand-desc { font-size: 12px; margin-bottom: 18px; }
-  .footer-contact-text { font-size: 11px; }
   .footer-bottom {
     flex-direction: column;
     text-align: center;
@@ -1556,6 +1579,7 @@ nav {
     padding: 20px 0;
   }
   .footer-copy { font-size: 11px; }
+  .footer-bottom-links { justify-content: center; }
   .footer-bottom-links a { font-size: 11px; }
 
   /* ── Page Banners ───────────────────────────────────────── */
