@@ -138,6 +138,7 @@ button { border: none; cursor: pointer; font-family: inherit; }
   z-index: 1000;
   transition: background var(--t) var(--ease), box-shadow var(--t) var(--ease), padding var(--t) var(--ease);
   padding: 22px 0;
+  direction: ltr;
 }
 #header.scrolled {
   background: rgba(10,10,10,0.97);
@@ -287,6 +288,7 @@ nav {
   flex-direction: column;
   padding: 100px 40px 40px;
   gap: 12px;
+  direction: ltr;
 }
 .mobile-menu.open { display: flex; }
 .mobile-menu .nav-link { font-size: 22px; font-weight: 700; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
@@ -1677,6 +1679,62 @@ nav {
 [dir="rtl"] .footer-links a::before { content: '←'; }
 [dir="rtl"] .about-content { padding-right: 0; padding-left: 20px; }
 [dir="rtl"] .about-feature { border-left: none; border-right: 3px solid var(--primary); }
+/* Header stays LTR regardless of page direction */
+/* Mobile menu RTL */
+[dir="rtl"] .mobile-close {
+  left: 20px;
+  right: auto;
+}
+[dir="rtl"] .mobile-menu .lang-toggle {
+  align-self: flex-start;
+}
+/* Breadcrumb RTL */
+[dir="rtl"] .breadcrumb {
+  flex-direction: row-reverse;
+}
+[dir="rtl"] .breadcrumb-sep {
+  transform: rotate(180deg);
+}
+/* News page RTL */
+[dir="rtl"] .news-layout {
+  direction: ltr; /* Keep grid columns in LTR order */
+}
+[dir="rtl"] .news-list-grid {
+  direction: ltr; /* Keep image/text direction same */
+}
+[dir="rtl"] .sidebar-box {
+  text-align: right;
+}
+[dir="rtl"] .sidebar-cat-item {
+  flex-direction: row-reverse;
+}
+[dir="rtl"] .sidebar-recent {
+  direction: rtl;
+}
+/* WhatsApp button RTL */
+[dir="rtl"] [aria-label*="WhatsApp"] {
+  right: auto;
+  left: 32px;
+}
+/* CTA section text alignment */
+[dir="rtl"] .cta-title,
+[dir="rtl"] .cta-sub,
+[dir="rtl"] .cta-actions {
+  text-align: right;
+}
+[dir="rtl"] .cta-actions {
+  justify-content: flex-end;
+}
+/* Footer RTL adjustments */
+[dir="rtl"] .footer-top {
+  direction: rtl;
+}
+[dir="rtl"] .footer-links a {
+  text-align: right;
+}
+[dir="rtl"] .footer-contact-item {
+  flex-direction: row-reverse;
+}
 [dir="rtl"] .hero-overlay {
   background:
     linear-gradient(270deg, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.45) 60%, rgba(0,0,0,0.15) 100%),
